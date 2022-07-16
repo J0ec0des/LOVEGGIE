@@ -19,17 +19,11 @@ struct ContentView: View {
             
             SecondView().tabItem
             {
-                Image(systemName: "magnifyingglass")
-                Text("2nd")
-            }
-            
-            ThirdView().tabItem
-            {
                 Image(systemName: "plus.app")
                 Text("3rd")
             }
             
-            FourthView().tabItem
+            ThirdView().tabItem
             {
                 Image(systemName: "person.crop.circle")
                 Text("4th")
@@ -62,7 +56,7 @@ struct SecondView: View
     {
         ZStack
         {
-            Color.gray.ignoresSafeArea(edges: .top)
+            Color.red.ignoresSafeArea(edges: .top)
             Text("Second View")
         }
     }
@@ -80,14 +74,3 @@ struct ThirdView: View
     }
 }
 
-struct FourthView: View
-{
-    var body: some View
-    {
-        ZStack
-        {
-            Color.red.ignoresSafeArea(edges: .top)
-            Text("Fourth View")
-        }
-    }
-}
