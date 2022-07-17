@@ -7,28 +7,11 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    var body: some View {
-        TabView
-        {
-            FirstView().tabItem
-            {
-                Image(systemName: "heart")
-                Text("1st")
-            }
-            
-            SecondView().tabItem
-            {
-                Image(systemName: "plus.app")
-                Text("3rd")
-            }
-            
-            ThirdView().tabItem
-            {
-                Image(systemName: "person.crop.circle")
-                Text("4th")
-            }
-        }
+struct ContentView: View
+{
+    var body: some View
+    {
+        Home()
     }
 }
 
@@ -38,39 +21,95 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-struct FirstView: View
+struct Home:View
 {
+    @State var index = 0
     var body: some View
     {
         ZStack
         {
-            Color.pink.ignoresSafeArea(edges: .top)
-            Text("First View")
+            VStack{
+                Spacer()
+                
+                HStack(spacing: 0){
+                    
+                    Button(action: {
+                        
+                        self.index = 0
+                        
+                    }) {
+                        
+                        Image(systemName:"heart")
+                        .resizable()
+                        .frame(width: 25, height: 25)
+                        .foregroundColor(self.index == 0 ? .white : Color.white.opacity(0.35))
+                        .padding(.horizontal)
+                    }
+                    
+                    Spacer(minLength: 0)
+                    
+                    Button(action: {
+                        
+                        self.index = 1
+                        
+                    }) {
+                        
+                        Image(systemName: "magnifyingglass")
+                        .resizable()
+                        .frame(width: 25, height: 25)
+                        .foregroundColor(self.index == 1 ? .white : Color.white.opacity(0.35))
+                        .padding(.horizontal)
+                    }
+                    
+                    Spacer(minLength: 0)
+                    
+                    Button(action: {
+                        
+                        self.index = 2
+                        
+                    }) {
+                        
+                        Image(systemName: "plus.app.fill")
+                            .renderingMode(.original)
+                        .resizable()
+                        .frame(width: 40, height: 25)
+                        .padding(.horizontal)
+                    }
+                    
+                    Spacer(minLength: 0)
+                    
+                    Button(action: {
+                        
+                        self.index = 3
+                        
+                    }) {
+                        
+                        Image(systemName: "message")
+                        .resizable()
+                        .frame(width: 25, height: 25)
+                        .foregroundColor(self.index == 3 ? .white : Color.white.opacity(0.35))
+                        .padding(.horizontal)
+                    }
+                    
+                    Spacer(minLength: 0)
+                    
+                    Button(action: {
+                        
+                        self.index = 4
+                        
+                    }) {
+                        
+                        Image(systemName: "clock")
+                        .resizable()
+                        .frame(width: 25, height: 25)
+                        .foregroundColor(self.index == 4 ? .white : Color.white.opacity(0.35))
+                        .padding(.horizontal)
+                    }
+                }
+                .padding(.bottom,25)
+            }
         }
+        .background(Color.black.edgesIgnoringSafeArea(.all))
+        .edgesIgnoringSafeArea(.all)
     }
 }
-
-struct SecondView: View
-{
-    var body: some View
-    {
-        ZStack
-        {
-            Color.red.ignoresSafeArea(edges: .top)
-            Text("Second View")
-        }
-    }
-}
-
-struct ThirdView: View
-{
-    var body: some View
-    {
-        ZStack
-        {
-            Color.red.ignoresSafeArea(edges: .top)
-            Text("Third View")
-        }
-    }
-}
-
