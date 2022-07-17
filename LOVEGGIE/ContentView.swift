@@ -29,6 +29,7 @@ struct Home:View
         ZStack
         {
             VStack{
+                
                 Spacer()
                 
                 HStack(spacing: 0){
@@ -106,7 +107,7 @@ struct Home:View
                         .padding(.horizontal)
                     }
                 }
-                .padding(.bottom,25)
+                .padding(.bottom, 25)
             }
         }
         .background(Color.black.edgesIgnoringSafeArea(.all))
