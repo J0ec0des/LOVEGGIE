@@ -74,11 +74,33 @@ struct SecondView: View
 
 struct ThirdView: View
 {
+    @State var isPickerShowing = false
+    @State var selectedImage: UIImage?
     var body: some View
     {
         ZStack
         {
             Color.white.ignoresSafeArea(edges: .top)
+            
+            //image picker stack
+            VStack {
+                if selectedImage != nil {
+                    Image(uiImage: selectedImage!)
+                        .resizable()
+                        .frame(width: 200, height: 200)
+                }
+                
+                Button {
+                    // show image previews
+                    isPickerShowing = true
+                } label: {
+                    Text("Select a Photo")
+                }
+            }
+             .sheet(isPresented: $isPickerShowing, onDismiss: nil) {
+                //Image picker
+                ImagePicker(selectedImage: $selectedImage, isPickerShowing: $isPickerShowing)
+            }
         }
     }
 }
