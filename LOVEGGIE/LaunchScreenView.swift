@@ -33,4 +33,4 @@ private extension LaunchScreenView {
         Image("Launch_Icon")
     }
     
-}
+} 
