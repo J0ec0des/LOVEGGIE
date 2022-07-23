@@ -29,7 +29,7 @@ struct ContentView: View {
                 .resizable()
                 .frame(width: 3.5, height: 3.5)
                 .padding(.horizontal)
-            } 
+            }
             
             FourthView().tabItem
             {
