@@ -15,6 +15,9 @@
 		DD21B7002882FC3100D3A6E2 /* LOVEGGIEUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD21B6FF2882FC3100D3A6E2 /* LOVEGGIEUITests.swift */; };
 		DD21B7022882FC3100D3A6E2 /* LOVEGGIEUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD21B7012882FC3100D3A6E2 /* LOVEGGIEUITestsLaunchTests.swift */; };
 		DDF3C801288BD4DB00ED3654 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF3C800288BD4DB00ED3654 /* ImagePicker.swift */; };
+		DDF3C804288BDA5B00ED3654 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = DDF3C803288BDA5B00ED3654 /* FirebaseFirestore */; };
+		DDF3C806288BDA5B00ED3654 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = DDF3C805288BDA5B00ED3654 /* FirebaseStorage */; };
+		DDF3C808288BE77F00ED3654 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDF3C807288BE77F00ED3654 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,7 @@
 		DD21B6FF2882FC3100D3A6E2 /* LOVEGGIEUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOVEGGIEUITests.swift; sourceTree = "<group>"; };
 		DD21B7012882FC3100D3A6E2 /* LOVEGGIEUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOVEGGIEUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DDF3C800288BD4DB00ED3654 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		DDF3C807288BE77F00ED3654 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDF3C804288BDA5B00ED3654 /* FirebaseFirestore in Frameworks */,
+				DDF3C806288BDA5B00ED3654 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,9 +104,10 @@
 			children = (
 				DD21B6E42882FC3100D3A6E2 /* LOVEGGIEApp.swift */,
 				DD21B6E62882FC3100D3A6E2 /* ContentView.swift */,
+				DDF3C800288BD4DB00ED3654 /* ImagePicker.swift */,
+				DDF3C807288BE77F00ED3654 /* GoogleService-Info.plist */,
 				DD21B6E82882FC3100D3A6E2 /* Assets.xcassets */,
 				DD21B6EA2882FC3100D3A6E2 /* Preview Content */,
-				DDF3C800288BD4DB00ED3654 /* ImagePicker.swift */,
 			);
 			path = LOVEGGIE;
 			sourceTree = "<group>";
@@ -146,6 +153,10 @@
 			dependencies = (
 			);
 			name = LOVEGGIE;
+			packageProductDependencies = (
+				DDF3C803288BDA5B00ED3654 /* FirebaseFirestore */,
+				DDF3C805288BDA5B00ED3654 /* FirebaseStorage */,
+			);
 			productName = LOVEGGIE;
 			productReference = DD21B6E12882FC3100D3A6E2 /* LOVEGGIE.app */;
 			productType = "com.apple.product-type.application";
@@ -218,6 +229,9 @@
 				Base,
 			);
 			mainGroup = DD21B6D82882FC3100D3A6E2;
+			packageReferences = (
+				DDF3C802288BDA5A00ED3654 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = DD21B6E22882FC3100D3A6E2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -236,6 +250,7 @@
 			files = (
 				DD21B6EC2882FC3100D3A6E2 /* Preview Assets.xcassets in Resources */,
 				DD21B6E92882FC3100D3A6E2 /* Assets.xcassets in Resources */,
+				DDF3C808288BE77F00ED3654 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,6 +596,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DDF3C802288BDA5A00ED3654 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DDF3C803288BDA5B00ED3654 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDF3C802288BDA5A00ED3654 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		DDF3C805288BDA5B00ED3654 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDF3C802288BDA5A00ED3654 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DD21B6D92882FC3100D3A6E2 /* Project object */;
 }

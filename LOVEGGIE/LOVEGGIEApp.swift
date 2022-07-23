@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct LOVEGGIEApp: App {
@@ -13,5 +14,8 @@ struct LOVEGGIEApp: App {
         WindowGroup {
             ContentView()
         }
+    }
+    init(){
+        FirebaseApp.configure()
     }
 }

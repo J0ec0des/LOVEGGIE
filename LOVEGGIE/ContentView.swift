@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseStorage
 
 struct ContentView: View {
     var body: some View {
@@ -96,12 +97,53 @@ struct ThirdView: View
                 } label: {
                     Text("Select a Photo")
                 }
+                
+                // Upload Button
+                if selectedImage != nil {
+                    Button {
+                        //Upload the image
+                        uploadPhoto()
+                    } label: {
+                        Text("Upload Photo")
+                    }
+                }
             }
              .sheet(isPresented: $isPickerShowing, onDismiss: nil) {
                 //Image picker
                 ImagePicker(selectedImage: $selectedImage, isPickerShowing: $isPickerShowing)
             }
         }
+    }
+    
+    func uploadPhoto() {
+        // image exists
+        guard selectedImage != nil else {
+            return
+        }
+        
+        // Create storage reference
+        let storageRef = Storage.storage().reference()
+        
+        
+        // turn image to data
+        let imageData = selectedImage!.jpegData(compressionQuality: 0.0)
+        guard imageData != nil else{
+            return
+        }
+        
+        // specify file path and name
+        let fileRef = storageRef.child("images/\(UUID().uuidString).jpg")
+        
+        // Upload data
+        let uploadTask = fileRef.putData(imageData!, metadata: nil) { metadata, error in
+            // check error
+            if error == nil && metadata != nil {
+                
+            }
+            
+        }
+        
+        // Save referecne to that data
     }
 }
     
