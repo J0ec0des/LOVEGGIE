@@ -24,7 +24,11 @@ struct ContentView: View {
             
             ThirdView().tabItem
             {
-                Image(systemName: "plus.app.fill")
+                Image("Tomato_Icon")
+                    .renderingMode(.original)
+                .resizable()
+                .frame(width: 3.5, height: 3.5)
+                .padding(.horizontal)
             }
             
             FourthView().tabItem
