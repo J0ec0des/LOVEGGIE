@@ -14,6 +14,7 @@
 		DD21B6F62882FC3100D3A6E2 /* LOVEGGIETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD21B6F52882FC3100D3A6E2 /* LOVEGGIETests.swift */; };
 		DD21B7002882FC3100D3A6E2 /* LOVEGGIEUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD21B6FF2882FC3100D3A6E2 /* LOVEGGIEUITests.swift */; };
 		DD21B7022882FC3100D3A6E2 /* LOVEGGIEUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD21B7012882FC3100D3A6E2 /* LOVEGGIEUITestsLaunchTests.swift */; };
+		FF0119E8288BC3AC0062A92C /* ahaha.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF0119E7288BC3AC0062A92C /* ahaha.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		DD21B6FB2882FC3100D3A6E2 /* LOVEGGIEUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LOVEGGIEUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD21B6FF2882FC3100D3A6E2 /* LOVEGGIEUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOVEGGIEUITests.swift; sourceTree = "<group>"; };
 		DD21B7012882FC3100D3A6E2 /* LOVEGGIEUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOVEGGIEUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FF0119E7288BC3AC0062A92C /* ahaha.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ahaha.storyboard; path = ../../../ahaha.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				DD21B6E42882FC3100D3A6E2 /* LOVEGGIEApp.swift */,
 				DD21B6E62882FC3100D3A6E2 /* ContentView.swift */,
+				FF0119E7288BC3AC0062A92C /* ahaha.storyboard */,
 				DD21B6E82882FC3100D3A6E2 /* Assets.xcassets */,
 				DD21B6EA2882FC3100D3A6E2 /* Preview Content */,
 			);
@@ -233,6 +236,7 @@
 			files = (
 				DD21B6EC2882FC3100D3A6E2 /* Preview Assets.xcassets in Resources */,
 				DD21B6E92882FC3100D3A6E2 /* Assets.xcassets in Resources */,
+				FF0119E8288BC3AC0062A92C /* ahaha.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

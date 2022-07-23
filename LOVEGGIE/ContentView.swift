@@ -7,11 +7,40 @@
 
 import SwiftUI
 
-struct ContentView: View
-{
-    var body: some View
-    {
-        Home()
+struct ContentView: View {
+    var body: some View {
+        TabView
+        {
+            FirstView().tabItem
+            {
+                Image(systemName: "heart")
+            }
+            
+            SecondView().tabItem
+            {
+                Image(systemName: "magnifyingglass")
+            }
+            
+            ThirdView().tabItem
+            {
+                Image(systemName: "plus.app.fill")
+            }
+            
+            FourthView().tabItem
+            {
+                Image(systemName: "message")
+            }
+            
+            FifthView().tabItem
+            {
+                Image(systemName: "clock").opacity(0.1)
+            }
+        }
+        .accentColor(Color.black) // color of when the button was pressed
+        .onAppear{
+            UITabBar.appearance().backgroundColor = UIColor(white: 1, alpha: 0.4)
+            UITabBar.appearance().unselectedItemTintColor = UIColor.gray
+        }
     }
 }
 
@@ -21,96 +50,57 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-struct Home:View
+struct FirstView: View
 {
-    @State var index = 0
     var body: some View
     {
         ZStack
         {
-            VStack{
-                
-                Spacer()
-                
-                HStack(spacing: 0){
-                    
-                    Button(action: {
-                        
-                        self.index = 0
-                        
-                    }) {
-                        
-                        Image(systemName:"heart")
-                        .resizable()
-                        .frame(width: 25, height: 25)
-                        .foregroundColor(self.index == 0 ? .white : Color.white.opacity(0.35))
-                        .padding(.horizontal)
-                    }
-                    
-                    Spacer(minLength: 0)
-                    
-                    Button(action: {
-                        
-                        self.index = 1
-                        
-                    }) {
-                        
-                        Image(systemName: "magnifyingglass")
-                        .resizable()
-                        .frame(width: 25, height: 25)
-                        .foregroundColor(self.index == 1 ? .white : Color.white.opacity(0.35))
-                        .padding(.horizontal)
-                    }
-                    
-                    Spacer(minLength: 0)
-                    
-                    Button(action: {
-                        
-                        self.index = 2
-                        
-                    }) {
-                        
-                        Image(systemName: "plus.app.fill")
-                            .renderingMode(.original)
-                        .resizable()
-                        .frame(width: 40, height: 25)
-                        .padding(.horizontal)
-                    }
-                    
-                    Spacer(minLength: 0)
-                    
-                    Button(action: {
-                        
-                        self.index = 3
-                        
-                    }) {
-                        
-                        Image(systemName: "message")
-                        .resizable()
-                        .frame(width: 25, height: 25)
-                        .foregroundColor(self.index == 3 ? .white : Color.white.opacity(0.35))
-                        .padding(.horizontal)
-                    }
-                    
-                    Spacer(minLength: 0)
-                    
-                    Button(action: {
-                        
-                        self.index = 4
-                        
-                    }) {
-                        
-                        Image(systemName: "clock")
-                        .resizable()
-                        .frame(width: 25, height: 25)
-                        .foregroundColor(self.index == 4 ? .white : Color.white.opacity(0.35))
-                        .padding(.horizontal)
-                    }
-                }
-                .padding(.bottom, 25)
-            }
+            Color.white.ignoresSafeArea(edges: .top)
         }
-        .background(Color.black.edgesIgnoringSafeArea(.all))
-        .edgesIgnoringSafeArea(.all)
+    }
+}
+
+struct SecondView: View
+{
+    var body: some View
+    {
+        ZStack
+        {
+            Color.white.ignoresSafeArea(edges: .top)
+        }
+    }
+}
+
+struct ThirdView: View
+{
+    var body: some View
+    {
+        ZStack
+        {
+            Color.white.ignoresSafeArea(edges: .top)
+        }
+    }
+}
+    
+struct FourthView: View
+{
+    var body: some View
+    {
+        ZStack
+        {
+            Color.white.ignoresSafeArea(edges: .top)
+        }
+    }
+}
+    
+struct FifthView: View
+{
+    var body: some View
+    {
+        ZStack
+        {
+            Color.white.ignoresSafeArea(edges: .top)
+        }
     }
 }
