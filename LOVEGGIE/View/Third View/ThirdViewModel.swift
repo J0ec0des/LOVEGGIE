@@ -12,5 +12,6 @@ import FirebaseFirestore
 final class ThirdViewModel: ObservableObject {
     // @state var -> @Published var
     // add .viewmodel to parent
+    
 }
 
