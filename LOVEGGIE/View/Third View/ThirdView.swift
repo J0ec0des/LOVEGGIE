@@ -70,7 +70,7 @@ struct ThirdView: View {
                     ForEach(retrievedImages, id: \.self) { image in
                         Image(uiImage: image)
                             .resizable()
-                            .frame(width: 100, height: 100)
+                            .frame(width: 50, height: 50)
                     }
                 }
             }
@@ -78,9 +78,7 @@ struct ThirdView: View {
                 //Image picker
                 ImagePicker(selectedImage: $selectedImage, isPickerShowing: $isPickerShowing)
             }
-             .onAppear {
-                 retrievePhotos()
-             }
+             
             
         }
         

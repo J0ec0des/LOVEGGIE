@@ -15,7 +15,8 @@ struct FirstView: View
         ZStack
         {
             Color.white.ignoresSafeArea(edges: .top)
-            
+            PostView()
+                .environmentObject(PostsViewModel())
         }
     }
 }
