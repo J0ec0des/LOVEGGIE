@@ -114,7 +114,7 @@ struct ThirdView: View {
             if error == nil && metadata != nil {
                 // save reference to the file in firestore database
                 let db = Firestore.firestore()
-                db.collection("posts").document().setData(["url":path, "name":name, "price":price]) { error in
+                db.collection("posts").document().setData(["url":path, "name":name, "price":price, "date": Date()]) { error in
                     // if there are no error display the new image
                     if error == nil {
                         DispatchQueue.main.async {
