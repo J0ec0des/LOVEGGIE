@@ -32,6 +32,7 @@
 		DDF3C833288D387A00ED3654 /* InfiniteScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF3C832288D387A00ED3654 /* InfiniteScrollView.swift */; };
 		DDF3C835288D38A400ED3654 /* PostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF3C834288D38A400ED3654 /* PostsViewModel.swift */; };
 		DDF3C838288D3A2600ED3654 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DDF3C837288D3A2600ED3654 /* FirebaseFirestoreSwift */; };
+		DDF3C83A288DCD1E00ED3654 /* BuyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF3C839288DCD1E00ED3654 /* BuyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		DDF3C830288D385600ED3654 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		DDF3C832288D387A00ED3654 /* InfiniteScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteScrollView.swift; sourceTree = "<group>"; };
 		DDF3C834288D38A400ED3654 /* PostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewModel.swift; sourceTree = "<group>"; };
+		DDF3C839288DCD1E00ED3654 /* BuyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +208,7 @@
 				DDF3C830288D385600ED3654 /* PostView.swift */,
 				DDF3C832288D387A00ED3654 /* InfiniteScrollView.swift */,
 				DDF3C834288D38A400ED3654 /* PostsViewModel.swift */,
+				DDF3C839288DCD1E00ED3654 /* BuyView.swift */,
 			);
 			path = "First View";
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				DDF3C81B288D096700ED3654 /* FirstView.swift in Sources */,
 				0442A9AC288D4ADB00C7A653 /* LocationRequestView.swift in Sources */,
 				DDF3C833288D387A00ED3654 /* InfiniteScrollView.swift in Sources */,
+				DDF3C83A288DCD1E00ED3654 /* BuyView.swift in Sources */,
 				0442A9AA288D4AB900C7A653 /* LocationManager.swift in Sources */,
 				DDF3C82F288D1F9800ED3654 /* Post.swift in Sources */,
 				DDF3C819288D095C00ED3654 /* SecondView.swift in Sources */,

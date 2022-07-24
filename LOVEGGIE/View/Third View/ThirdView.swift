@@ -7,6 +7,7 @@
 import SwiftUI
 import FirebaseStorage
 import FirebaseFirestore
+import CoreLocation
 
 struct ThirdView: View {
     
@@ -17,6 +18,8 @@ struct ThirdView: View {
     @State var retrievedImages = [UIImage]()
     @State var name = ""
     @State var price = ""
+    @State var location: CLLocation?
+    @ObservedObject var locationManager = LocationManager.shared
     
     var body: some View {
         ZStack
@@ -24,61 +27,69 @@ struct ThirdView: View {
             Color.white.ignoresSafeArea(edges: .top)
             
             //image picker stack
-            VStack {
-                
-                TextField("Name", text: $name)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                
-                Divider()
-                
-                if selectedImage != nil {
-                    Image(uiImage: selectedImage!)
-                        .resizable()
-                        .frame(width: 200, height: 200)
-                }
-                
-                Button {
-                    // show image previews
-                    isPickerShowing = true
-                } label: {
-                    Text("Select a Photo")
-                }
-                
-                Divider()
-                
-                TextField("Price", text: $price)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .keyboardType(.decimalPad)
-                
-                // Upload Button
-                if selectedImage != nil {
-                    Button {
-                        //Upload the image
-                        upload(name: name, price: price)
-                        name = ""
-                        price = ""
-                    } label: {
-                        Text("Upload")
+            if locationManager.userLocation == nil {
+                LocationRequestView()
+            } else {
+                VStack {
+                    
+                    TextField("Name", text: $name)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    
+                    Divider()
+                    
+                    if selectedImage != nil {
+                        Image(uiImage: selectedImage!)
+                            .resizable()
+                            .frame(width: 200, height: 200)
                     }
                     
-                }
-                
-                Divider()
-                
-                HStack {
-                    //loop through images
-                    ForEach(retrievedImages, id: \.self) { image in
-                        Image(uiImage: image)
-                            .resizable()
-                            .frame(width: 50, height: 50)
+                    Button {
+                        // show image previews
+                        isPickerShowing = true
+                        //print(locationManager.userLocation!)
+                        location = locationManager.userLocation
+                        
+                        
+                    } label: {
+                        Text("Select a Photo")
+                    }
+                    
+                    Divider()
+                    
+                    
+                    TextField("Price", text: $price)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .keyboardType(.decimalPad)
+                    
+                    // Upload Button
+                    if selectedImage != nil {
+                        Button {
+                            //Upload the image
+                            upload(name: name, price: price, location: location!)
+                            name = ""
+                            price = ""
+                        } label: {
+                            Text("Upload")
+                        }
+                        
+                    }
+                    
+                    Divider()
+                    
+                    HStack {
+                        //loop through images
+                        ForEach(retrievedImages, id: \.self) { image in
+                            Image(uiImage: image)
+                                .resizable()
+                                .frame(width: 50, height: 50)
+                        }
                     }
                 }
+                .sheet(isPresented: $isPickerShowing, onDismiss: nil) {
+                    //Image picker
+                    ImagePicker(selectedImage: $selectedImage, isPickerShowing: $isPickerShowing)
+                }
             }
-            .sheet(isPresented: $isPickerShowing, onDismiss: nil) {
-                //Image picker
-                ImagePicker(selectedImage: $selectedImage, isPickerShowing: $isPickerShowing)
-            }
-             
             
         }
         
@@ -86,11 +97,17 @@ struct ThirdView: View {
     }
     
     
-    func upload(name: String, price: String) {
+    func upload(name: String, price: String, location: CLLocation) {
         // image exists
         guard selectedImage != nil else {
             return
         }
+        let coord = location.coordinate
+        let longitude = coord.longitude //Latitude & Longitude as String
+        let latitude = coord.latitude
+        //print(location)
+        let locationstringlong = String(format: "%f", longitude)
+        let locationstringlat = String(format: "%f", latitude)
         
         // Create storage reference
         let storageRef = Storage.storage().reference()
@@ -105,14 +122,13 @@ struct ThirdView: View {
         let uuid = UUID().uuidString
         let path = "posts/\(uuid).jpg"
         let fileRef = storageRef.child(path)
-        
         // Upload data
         let uploadTask = fileRef.putData(imageData!, metadata: nil) { metadata, error in
             // check error
             if error == nil && metadata != nil {
                 // save reference to the file in firestore database
                 let db = Firestore.firestore()
-                db.collection("posts").document().setData(["url":path, "name":name, "price":price, "date": Date(), "uuid": uuid]) { error in
+                db.collection("posts").document().setData(["url":path, "name":name, "price":price, "date": Date(), "uuid": uuid, "latitude": locationstringlat, "longitude": locationstringlong]) { error in
                     // if there are no error display the new image
                     if error == nil {
                         DispatchQueue.main.async {

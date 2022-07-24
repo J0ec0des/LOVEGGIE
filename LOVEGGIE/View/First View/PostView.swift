@@ -39,17 +39,30 @@ struct PostTabView: View {
     var post: Post
     
     @State private var showimage: UIImage? = nil
-    
+    @State var showSheet: Bool = false
     // UI of each card
     var body: some View {
         VStack {
             VStack {
                 Text(post.name)
                 Text(post.price)
-                if showimage != nil {
-                    Image(uiImage: showimage!)
-                        .resizable()
-                        .frame(width:300, height: 300)
+                ZStack {
+                    if showimage != nil {
+                        Image(uiImage: showimage!)
+                            .resizable()
+                            .frame(width:300, height: 300)
+                        
+                    }
+                    Button(action: {
+                        showSheet.toggle()
+                    }, label: {
+                        Text("")
+                        .frame(width: 300, height: 300)
+                    })
+                    .sheet(isPresented: $showSheet, content: {
+                        BuyView()
+                    })
+                        
                     
                 }
             }
@@ -89,5 +102,10 @@ struct PostLinkView: View {
     var body: some View {
         Text("\(post.name)")
         Text("\(post.price)")
+        Button {
+            
+        } label: {
+            Text("Buy")
+        }
     }
 }
