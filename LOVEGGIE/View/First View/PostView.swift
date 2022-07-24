@@ -51,9 +51,6 @@ struct PostTabView: View {
         } else {
             VStack {
                 VStack {
-                    Text(post.name)
-                    Text(post.price)
-                    Text("\(distancenum)km away")
                     ZStack {
                         if showimage != nil {
                             Image(uiImage: showimage!)
@@ -73,9 +70,23 @@ struct PostTabView: View {
                         
                         
                     }
+                    Text(post.name)
+//                        .font(.body)
+//                        .fontWeight(.semibold)
+                        .font(.system(size: 30, weight: .semibold, design: .default))
+                        .frame(width: 200, height: 20, alignment: .leading)
+                    Text("¥\(post.price)")
+//                        .fontWeight(.medium)
+                        .font(.system(size: 14, weight: .medium, design: .default))
+                        .frame(width: 200, height: 15, alignment: .leading)
+                    Text("\(distancenum)km away")
+//                        .fontWeight(.medium)
+                        .font(.system(size: 18, weight: .medium, design: .default))
+                        .frame(width: 200, height: 20, alignment: .leading)
+                   
                 }
-                .frame(maxWidth: .infinity, minHeight: 700)
-                .background(Color(red: 173 / 255, green: 216 / 255, blue: 230 / 255))
+                .frame(maxWidth: .infinity, minHeight: 600)
+                .background(Color(red: 255 / 255, green: 169 / 255, blue: 185 / 255))
                 Divider()
             }
             .onAppear {

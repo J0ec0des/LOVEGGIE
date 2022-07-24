@@ -14,7 +14,14 @@ struct BuyView: View
     {
         ZStack
         {
-            
+            VStack {
+                Button {
+                    
+                } label: {
+                    Text("Buy")
+                }
+                .buttonStyle(.borderedProminent)
+            }
         }
     }
 }
