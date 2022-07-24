@@ -106,8 +106,8 @@ struct ThirdView: View {
         let longitude = coord.longitude //Latitude & Longitude as String
         let latitude = coord.latitude
         //print(location)
-        let locationstringlong = String(format: "%f", longitude)
-        let locationstringlat = String(format: "%f", latitude)
+        //let locationstringlong = String(format: "%f", longitude)
+        //let locationstringlat = String(format: "%f", latitude)
         
         // Create storage reference
         let storageRef = Storage.storage().reference()
@@ -128,7 +128,7 @@ struct ThirdView: View {
             if error == nil && metadata != nil {
                 // save reference to the file in firestore database
                 let db = Firestore.firestore()
-                db.collection("posts").document().setData(["url":path, "name":name, "price":price, "date": Date(), "uuid": uuid, "latitude": locationstringlat, "longitude": locationstringlong]) { error in
+                db.collection("posts").document().setData(["url":path, "name":name, "price":price, "date": Date(), "uuid": uuid, "latitude": latitude, "longitude": longitude]) { error in
                     // if there are no error display the new image
                     if error == nil {
                         DispatchQueue.main.async {

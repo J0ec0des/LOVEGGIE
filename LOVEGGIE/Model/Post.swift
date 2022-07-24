@@ -15,4 +15,6 @@ struct Post: Codable, ScrollableData {
     var name: String = ""
     var price: String = ""
     var uuid: String = ""
+    var latitude: Double?
+    var longitude: Double?
 }

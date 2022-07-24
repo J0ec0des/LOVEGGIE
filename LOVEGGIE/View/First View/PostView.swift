@@ -8,6 +8,7 @@
 import SwiftUI
 import FirebaseStorage
 import FirebaseFirestore
+import CoreLocation
 
 struct PostView: View {
     
@@ -39,40 +40,50 @@ struct PostTabView: View {
     var post: Post
     
     @State private var showimage: UIImage? = nil
+    @State private var distancenum: String = ""
     @State var showSheet: Bool = false
+    @ObservedObject var locationManager = LocationManager.shared
+    @State var location: CLLocation?
     // UI of each card
     var body: some View {
-        VStack {
+        if locationManager.userLocation == nil {
+            LocationRequestView()
+        } else {
             VStack {
-                Text(post.name)
-                Text(post.price)
-                ZStack {
-                    if showimage != nil {
-                        Image(uiImage: showimage!)
-                            .resizable()
-                            .frame(width:300, height: 300)
+                VStack {
+                    Text(post.name)
+                    Text(post.price)
+                    Text("\(distancenum)km away")
+                    ZStack {
+                        if showimage != nil {
+                            Image(uiImage: showimage!)
+                                .resizable()
+                                .frame(width:300, height: 300)
+                            
+                        }
+                        Button(action: {
+                            showSheet.toggle()
+                        }, label: {
+                            Text("")
+                                .frame(width: 300, height: 300)
+                        })
+                        .sheet(isPresented: $showSheet, content: {
+                            BuyView()
+                        })
+                        
                         
                     }
-                    Button(action: {
-                        showSheet.toggle()
-                    }, label: {
-                        Text("")
-                        .frame(width: 300, height: 300)
-                    })
-                    .sheet(isPresented: $showSheet, content: {
-                        BuyView()
-                    })
-                        
-                    
                 }
+                .frame(maxWidth: .infinity, minHeight: 700)
+                .background(Color(red: 173 / 255, green: 216 / 255, blue: 230 / 255))
+                Divider()
             }
-            .frame(maxWidth: .infinity, minHeight: 700)
-            .background(Color(red: 173 / 255, green: 216 / 255, blue: 230 / 255))
-            Divider()
-        }
-        .onAppear {
-            retrieveimage()
-            print("called retrieved image func")
+            .onAppear {
+                location = locationManager.userLocation
+                calcDistance()
+                retrieveimage()
+                print("called retrieved image func")
+            }
         }
     }
     
@@ -88,12 +99,20 @@ struct PostTabView: View {
                 
                 if let image = UIImage(data: data!) {
                     //DispatchQueue.main.async {
-                        showimage = image
-                        print("updated image var")
+                    showimage = image
+                    print("updated image var")
                     //}
                 }
             }
         }
+    }
+    func calcDistance() {
+        let location1 = CLLocation(latitude: post.latitude!, longitude: post.longitude!)
+        let location2 = location
+        let distance = location1.distance(from: location2!)/1000
+        let roundDistance = round(distance * 10) / 10.0
+        distancenum = String(format: "%.1f", roundDistance)
+        print(distancenum)
     }
 }
 
