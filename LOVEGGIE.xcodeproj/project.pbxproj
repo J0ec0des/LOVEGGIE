@@ -131,7 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				DDF3C82D288D1F9100ED3654 /* Model */,
-				DDF3C82C288D1F8A00ED3654 /* ViewModel */,
 				0438E61E288D1A9300445381 /* SplashScreenView.swift */,
 				DD21B6E42882FC3100D3A6E2 /* LOVEGGIEApp.swift */,
 				DD21B6E62882FC3100D3A6E2 /* ContentView.swift */,
@@ -225,13 +224,6 @@
 				DDF3C81E288D099200ED3654 /* FifthView.swift */,
 			);
 			path = "Fifth View";
-			sourceTree = "<group>";
-		};
-		DDF3C82C288D1F8A00ED3654 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		DDF3C82D288D1F9100ED3654 /* Model */ = {

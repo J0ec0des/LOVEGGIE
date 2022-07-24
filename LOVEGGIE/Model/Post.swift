@@ -14,4 +14,5 @@ struct Post: Codable, ScrollableData {
     @ServerTimestamp var date: Timestamp?
     var name: String = ""
     var price: String = ""
+    var uuid: String = ""
 }

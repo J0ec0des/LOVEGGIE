@@ -25,7 +25,7 @@ struct InfiniteScrollView<Tab: View, Link: View, Data: Codable>: View {
         self.onAppear = onAppear
         self.onRefresh = onRefresh
         self.onLoadData = onLoadData
-        UITableView.appearance().showsVerticalScrollIndicator = false
+        // UITableView.appearance().showsVerticalScrollIndicator = false
     }
     
     var body: some View {

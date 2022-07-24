@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import FirebaseStorage
+import FirebaseFirestore
 
 struct PostView: View {
     
@@ -35,17 +37,49 @@ struct PostView: View {
 
 struct PostTabView: View {
     var post: Post
-
-    // MARK: UI
+    
+    @State private var showimage: UIImage? = nil
+    
+    // UI of each card
     var body: some View {
         VStack {
             VStack {
                 Text(post.name)
                 Text(post.price)
+                if showimage != nil {
+                    Image(uiImage: showimage!)
+                        .resizable()
+                        .frame(width:300, height: 300)
+                    
+                }
             }
             .frame(maxWidth: .infinity, minHeight: 700)
             .background(Color(red: 173 / 255, green: 216 / 255, blue: 230 / 255))
             Divider()
+        }
+        .onAppear {
+            retrieveimage()
+            print("called retrieved image func")
+        }
+    }
+    
+    
+    func retrieveimage() {
+        print("func called")
+        let storageRef = Storage.storage().reference()
+        let fileRef = storageRef.child("posts/\(post.uuid).jpg")
+        print(post.uuid)
+        fileRef.getData(maxSize: 5 * 1024 * 1024) { data, error in
+            if error == nil && data != nil {
+                // display image
+                
+                if let image = UIImage(data: data!) {
+                    //DispatchQueue.main.async {
+                        showimage = image
+                        print("updated image var")
+                    //}
+                }
+            }
         }
     }
 }

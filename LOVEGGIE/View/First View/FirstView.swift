@@ -12,11 +12,10 @@ struct FirstView: View
 {
     var body: some View
     {
-        ZStack
-        {
-            Color.white.ignoresSafeArea(edges: .top)
+        let posts = PostsViewModel()
+       
             PostView()
-                .environmentObject(PostsViewModel())
-        }
+                .environmentObject(posts)
+        
     }
 }
