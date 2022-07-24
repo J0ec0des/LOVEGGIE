@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0438E61F288D1A9300445381 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0438E61E288D1A9300445381 /* SplashScreenView.swift */; };
 		DD21B6E52882FC3100D3A6E2 /* LOVEGGIEApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD21B6E42882FC3100D3A6E2 /* LOVEGGIEApp.swift */; };
 		DD21B6E72882FC3100D3A6E2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD21B6E62882FC3100D3A6E2 /* ContentView.swift */; };
 		DD21B6E92882FC3100D3A6E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD21B6E82882FC3100D3A6E2 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0438E61E288D1A9300445381 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		DD21B6E12882FC3100D3A6E2 /* LOVEGGIE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LOVEGGIE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD21B6E42882FC3100D3A6E2 /* LOVEGGIEApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOVEGGIEApp.swift; sourceTree = "<group>"; };
 		DD21B6E62882FC3100D3A6E2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 		DD21B6E32882FC3100D3A6E2 /* LOVEGGIE */ = {
 			isa = PBXGroup;
 			children = (
+				0438E61E288D1A9300445381 /* SplashScreenView.swift */,
 				DD21B6E42882FC3100D3A6E2 /* LOVEGGIEApp.swift */,
 				DD21B6E62882FC3100D3A6E2 /* ContentView.swift */,
 				DDF3C80D288CF16E00ED3654 /* View */,
@@ -364,6 +367,7 @@
 				DDF3C801288BD4DB00ED3654 /* ImagePicker.swift in Sources */,
 				DD21B6E72882FC3100D3A6E2 /* ContentView.swift in Sources */,
 				DDF3C81D288D098100ED3654 /* FourthView.swift in Sources */,
+				0438E61F288D1A9300445381 /* SplashScreenView.swift in Sources */,
 				DDF3C81F288D099200ED3654 /* FifthView.swift in Sources */,
 				DD21B6E52882FC3100D3A6E2 /* LOVEGGIEApp.swift in Sources */,
 			);
@@ -531,6 +535,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -559,6 +564,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -12,7 +12,7 @@ import Firebase
 struct LOVEGGIEApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SplashScreenView()
         }
     }
     init(){
