@@ -15,6 +15,8 @@ struct ThirdView: View {
     @State var isPickerShowing = false
     @State var selectedImage: UIImage?
     @State var retrievedImages = [UIImage]()
+    @State var name = ""
+    @State var price = ""
     
     var body: some View {
         ZStack
@@ -23,6 +25,12 @@ struct ThirdView: View {
             
             //image picker stack
             VStack {
+                
+                TextField("Name", text: $name)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                
+                Divider()
+                
                 if selectedImage != nil {
                     Image(uiImage: selectedImage!)
                         .resizable()
@@ -36,13 +44,21 @@ struct ThirdView: View {
                     Text("Select a Photo")
                 }
                 
+                Divider()
+                
+                TextField("Price", text: $price)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .keyboardType(.decimalPad)
+                
                 // Upload Button
                 if selectedImage != nil {
                     Button {
                         //Upload the image
-                        uploadPhoto()
+                        upload(name: name, price: price)
+                        name = ""
+                        price = ""
                     } label: {
-                        Text("Upload Photo")
+                        Text("Upload")
                     }
                     
                 }
@@ -72,7 +88,7 @@ struct ThirdView: View {
     }
     
     
-    func uploadPhoto() {
+    func upload(name: String, price: String) {
         // image exists
         guard selectedImage != nil else {
             return
@@ -88,7 +104,8 @@ struct ThirdView: View {
         }
         
         // specify file path and name
-        let path = "images/\(UUID().uuidString).jpg"
+        let uuid = UUID().uuidString
+        let path = "posts/\(uuid).jpg"
         let fileRef = storageRef.child(path)
         
         // Upload data
@@ -97,7 +114,7 @@ struct ThirdView: View {
             if error == nil && metadata != nil {
                 // save reference to the file in firestore database
                 let db = Firestore.firestore()
-                db.collection("images").document().setData(["url":path]) { error in
+                db.collection("posts").document().setData(["url":path, "name":name, "price":price]) { error in
                     // if there are no error display the new image
                     if error == nil {
                         DispatchQueue.main.async {
@@ -106,7 +123,6 @@ struct ThirdView: View {
                     }
                 }
             }
-            
         }
         // Save reference to that data
     }
@@ -116,7 +132,7 @@ struct ThirdView: View {
         // Get data from database
         let db = Firestore.firestore()
         
-        db.collection("images").getDocuments { snapshot, error in
+        db.collection("posts").getDocuments { snapshot, error in
             if error == nil && snapshot != nil {
                 
                 var paths = [String]()
