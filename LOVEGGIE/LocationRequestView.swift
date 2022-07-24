@@ -10,15 +10,15 @@ import SwiftUI
 struct LocationRequestView: View {
     var body: some View {
         ZStack {
-            Color(.systemBlue).ignoresSafeArea()
+            Color(.systemGreen).ignoresSafeArea()
             
             VStack {
                 Spacer()
                 
-                Image(systemName: "paperplane.circle.fill")
+                Image("Carrot_Compass")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 200, height: 200)
+                    .frame(width: 250, height: 250)
                     .padding(.bottom, 32)
                 
                 Text("Would you like to explore VEGGIES nearby?")
@@ -26,9 +26,10 @@ struct LocationRequestView: View {
                     .multilineTextAlignment(.center)
                     .padding()
                 
-                Text("Start sharing your location with LOVEGGIE!")
+                Text("Start your adventure with LOVEGGIES now!")
                     .multilineTextAlignment(.center)
-                    .frame(width: 200)
+                    .frame(width: 225)
+                    .font(.system(size: 20, weight: .bold))
                     .padding()
                 
                 Spacer()
@@ -40,12 +41,12 @@ struct LocationRequestView: View {
                         Text("Allow location")
                             .padding()
                             .font(.headline)
-                            .foregroundColor(Color(.systemBlue))
+                            .foregroundColor(Color(.systemOrange))
                     }
                     .frame(width: UIScreen.main.bounds.width)
                     .padding(.horizontal, -32)
                     .background(Color.white)
-                    .clipShape(Capsule())
+                    .clipShape(Ellipse())
                     .padding()
                     
                     //Maybe later button, but we don't want anyone to press that
