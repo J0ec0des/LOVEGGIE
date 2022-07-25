@@ -65,7 +65,7 @@ struct PostTabView: View {
                                 .frame(width: 300, height: 300)
                         })
                         .sheet(isPresented: $showSheet, content: {
-                            BuyView()
+                            BuyView(post: post)
                         })
                         
                         
