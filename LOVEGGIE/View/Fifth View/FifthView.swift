@@ -14,6 +14,7 @@ struct FifthView: View
         ZStack
         {
             Color.white.ignoresSafeArea(edges: .top)
+            Text("Coming Soon!")
         }
     }
 }
