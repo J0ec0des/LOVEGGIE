@@ -33,11 +33,11 @@ struct ThirdView: View {
             } else {
                 VStack {
                     
-                    TextField("Name", text: $name)
+                    TextField("Enter Product Name", text: $name)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .frame(width: 250, height: 50)
                         .padding(10)
-                        .font(.system(size: 20, weight: .bold))
+                        .font(.system(size: 20, weight: .medium))
                     
                     Divider()
                     
@@ -45,7 +45,7 @@ struct ThirdView: View {
                         Image(uiImage: selectedImage!)
                             .resizable()
                             .frame(width: 200, height: 200)
-                            .clipShape(Circle())
+                            //.clipShape(Circle())
                     }
                     
                     Button {
@@ -56,26 +56,24 @@ struct ThirdView: View {
                         
                         
                     } label: {
-                        VStack {
-                        Image("Tomato_Icon_Big")
-                            .resizable()
-                            .frame(width: 180, height: 180)
-                            .padding(10)
-                        Text("Click to Upload")
+                        ZStack {
+                        Text("Select Photo")
                             .multilineTextAlignment(.center)
                         }
+                        
                             
                     }
+                    .buttonStyle(.bordered)
                     
                     Divider()
                     
                     
-                    TextField("Price", text: $price)
+                    TextField("Enter Price", text: $price)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .keyboardType(.decimalPad)
                         .frame(width: 250, height: 50)
                         .padding(10)
-                        .font(.system(size: 20, weight: .bold))
+                        .font(.system(size: 20, weight: .medium))
                     
                     // Upload Button
                     if selectedImage != nil {
@@ -87,10 +85,11 @@ struct ThirdView: View {
                         } label: {
                             Text("Upload")
                         }
+                        .buttonStyle(.borderedProminent)
                         
                     }
                     
-                    Divider()
+                    
                     
                     HStack {
                         //loop through images
